@@ -99,7 +99,7 @@ func (t *SimpleChaincode) write(stub shim.ChaincodeStubInterface, args []string)
 }
 
 func (t *SimpleChaincode) changeowner(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-	stub.PutState('owner', 'meh')
+	stub.PutState("owner", "meh")
 
 	return nil, nil
 }

@@ -57,7 +57,10 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 		return t.Init(stub, "init", args)
 	} else if function == "write" {
 		return t.write(stub, args)
+	} else if function == "changeowner" {
+		return t.changeowner(stuf, args)
 	}
+
 	fmt.Println("invoke did not find func: " + function)
 
 	return nil, errors.New("Received unknown function invocation: " + function)
@@ -92,6 +95,12 @@ func (t *SimpleChaincode) write(stub shim.ChaincodeStubInterface, args []string)
 	if err != nil {
 		return nil, err
 	}
+	return nil, nil
+}
+
+func (t *SimpleChaincode) changeowner(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+	stub.PutState('owner', 'meh');
+
 	return nil, nil
 }
 

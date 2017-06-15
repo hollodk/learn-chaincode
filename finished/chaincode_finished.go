@@ -104,7 +104,7 @@ func (t *SimpleChaincode) changeOwner(stub shim.ChaincodeStubInterface, args []s
 	fmt.Println("running changeOwner()")
 
 	if len(args) != 2 {
-		return nul, errors.New("Incorrect number of arguemnts. Expecting 2. name of the key and value to set")
+		return nil, errors.New("Incorrect number of arguemnts. Expecting 2. name of the key and value to set")
 	}
 
 	asset = args[0]

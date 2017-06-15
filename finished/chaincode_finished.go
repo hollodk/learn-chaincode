@@ -58,7 +58,7 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 	} else if function == "write" {
 		return t.write(stub, args)
 	} else if function == "changeowner" {
-		return t.changeowner(stuf, args)
+		return t.changeowner(stub, args)
 	}
 
 	fmt.Println("invoke did not find func: " + function)
